@@ -43,36 +43,39 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.gridlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.android.material:material:1.6.0")
 
-    // ROOM Database Dependencies (runtime, compiler, coroutine support)
+    // ROOM Database
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1") // Coroutine support
+    implementation("androidx.room:room-ktx:2.6.1")
 
-    //  Coroutines (for database access)
+    // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    //  Lifecycle ViewModel (for later screens)
+    // Lifecycle ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
-    //  Optional: Glide (for image loading)
+    // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     kapt("com.github.bumptech.glide:compiler:4.16.0")
 
-    implementation ("com.google.android.material:material:1.6.0")
+    // --- ✅ TEST DEPENDENCIES (Local Unit Tests) ---
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("androidx.test:core:1.5.0")
+    testImplementation("androidx.test.ext:junit:1.1.5")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("org.robolectric:robolectric:4.11.1")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
 
-    // Parcelize
-    //implementation("org.jetbrains.kotlinx:kotlinx-parcelize-runtime:1.7.3")
+
 }
+

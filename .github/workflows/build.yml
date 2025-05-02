@@ -1,4 +1,4 @@
-name: Build Android App
+name: Android Build and Unit Test
 
 on:
   push:
@@ -26,5 +26,12 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-      - name: Run unit tests
-        run: ./gradlew test
+      - name: Run Debug Unit Tests
+        run: ./gradlew testDebugUnitTest
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: app/build/reports/tests/testDebugUnitTest
